@@ -1,0 +1,932 @@
+body {
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+#top-msg {
+  background-color: rgb(152, 182, 152);
+  text-align: center;
+  color: white;
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
+}
+/*  navbar */
+
+nav {
+  width: 100%;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 5%;
+  transition: all 0.5s ease-in-out;
+  z-index: 100;
+}
+
+.fixed-nav {
+  top: 0%;
+  background-color: white;
+  color: black;
+  box-shadow: 0 -10px 12px 5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+}
+.small-left {
+  display: none;
+}
+.left {
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.left > ul {
+  list-style: none;
+  padding: 0;
+}
+
+.left > ul > li {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: small;
+}
+
+.left > ul > li:hover {
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.1em;
+}
+
+.list-item {
+  display: none;
+  list-style: none;
+  position: absolute;
+  background-color: white;
+  margin-top: 7px;
+  color: rgb(145, 143, 143);
+  padding: 3%;
+  padding-bottom: 0;
+  width: 15%;
+  box-shadow: 0px 2px 5px 2px gray;
+  cursor: pointer;
+}
+.list-item li {
+  margin-bottom: 3em;
+}
+
+.list-item li:hover {
+  color: black;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.1em;
+}
+
+.dropdown:hover .list-item {
+  display: block;
+}
+
+.middle {
+  font-size: 40px;
+  font-weight: 500;
+  font-family: Comic Sans MS;
+  flex-basis: 30%;
+  text-align: center;
+}
+
+.right {
+  /* margin-left: -10px; */
+  display: flex;
+  flex-basis: 10%;
+  justify-content: space-between;
+  font-size: small;
+  cursor: pointer;
+}
+
+.right div:first-child:hover {
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.1em;
+}
+/* Slider */
+/* Slideshow container */
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin-top: 0px;
+}
+
+/* Caption text */
+.text {
+  color: white;
+  font-size: 15px;
+  padding: 0.7%;
+  position: absolute;
+  top: 40%;
+
+  width: 98%;
+  text-align: center;
+}
+
+.text span {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 40px;
+}
+
+.text p {
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.text button {
+  border: none;
+  background-color: black;
+  font-weight: bold;
+  padding-left: 3.5%;
+  padding-right: 3.5%;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  color: white;
+}
+
+/* The dots/bullets/indicators */
+.dot-box {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.dot {
+  height: 7px;
+  width: 7px;
+  margin: 0 2px;
+  background-color: #717171;
+  border-radius: 50%;
+  display: inline-block;
+  bottom: 8px;
+  transition: all 0.6s ease;
+}
+
+.active {
+  background-color: white;
+  height: 10px;
+  width: 10px;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 11px;
+  }
+}
+
+/*Main content*/
+
+main {
+  width: 100%;
+  height: 100%;
+}
+
+#product-heading {
+  width: 100%;
+  text-align: center;
+}
+
+#product-heading h1 {
+  font-size: xx-large;
+  margin-top: 10px;
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+  overflow: hidden;
+}
+
+.carousel-inner img {
+  width: 33.33%;
+  object-fit: cover;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  background-color: transparent;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  height: 50%;
+  font-size: xx-large;
+}
+
+.prev-btn {
+  left: 10px;
+  margin-right: 10px;
+}
+
+.next-btn {
+  right: 10px;
+  margin-left: 10px;
+}
+
+.card-section {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner-card {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card .inner-card .left-part {
+  width: 40%;
+  margin-right: 5%;
+}
+
+.card .inner-card .right-part {
+  width: 60%;
+}
+
+.card .inner-card .right-part img {
+  width: 90%;
+  height: 90%;
+}
+
+.card .inner-card .left-part div:first-child {
+  font-size: medium;
+}
+.card .inner-card .left-part h1 {
+  /* font-family: "Grotesk", sans-serif; */
+  /* font-family: "Times New Roman", Times, serif; */
+  font-family: "Century", sans-serif;
+  font-weight: 500;
+  font-size: x-large;
+}
+
+.card .inner-card .left-part div p {
+  color: gray;
+}
+.card .inner-card .left-part div button {
+  border: none;
+  margin-top: 5%;
+  width: 12em;
+  padding: 20px;
+  font-size: small;
+  background-color: #face93;
+  cursor: pointer;
+}
+
+.card .inner-card .left-part div button:hover {
+  color: #face93;
+  background-color: #000;
+}
+
+.color-card {
+  background-color: #f2efec;
+  padding: 5%;
+  margin-right: 5%;
+}
+
+.color-it {
+  background-color: #f2efec;
+}
+
+.color-it .left-part {
+  margin-right: 5%;
+}
+
+.some-text {
+  width: 100%;
+  padding: 3%;
+  margin-bottom: 5%;
+}
+
+.some-text div {
+  width: 50%;
+  margin-left: 8%;
+}
+
+.some-text div h1 {
+  font-weight: 500;
+  font-family: "Times New Roman", Times, serif;
+  font-size: xx-large;
+}
+
+#main-info {
+  color: gray;
+  line-height: 1.8em;
+}
+
+#info-link {
+  font-weight: bold;
+  font-size: small;
+  cursor: pointer;
+}
+
+#info-link:hover {
+  color: #face93;
+}
+
+.journal {
+  padding: 3%;
+  background-color: #f2efec;
+  text-align: center;
+}
+
+.journal > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.journal > div .j-item {
+  width: 30%;
+  height: 100%;
+}
+
+.journal > div .j-item .j-img {
+  width: 90%;
+  height: 70%;
+  overflow: hidden;
+}
+
+.journal > div .j-item .j-img img {
+  width: 350px;
+  height: 225px;
+  object-fit: cover;
+  object-position: 50% 100%;
+  transition: transform 0.3s;
+}
+
+.journal > div .j-item .j-img img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.journal > div .j-item .j-links {
+  font-size: x-small;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.1em;
+  text-align: left;
+}
+
+.journal > div .j-item .j-links span {
+  margin-right: 5px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.1em;
+  text-align: left;
+  cursor: pointer;
+}
+.journal > div .j-item .j-links span:hover {
+  color: #face93;
+  text-decoration-color: #face93;
+}
+
+.journal > div .j-item .j-topic {
+  text-align: left;
+  font-family: "Times New Roman", Times, serif;
+  font-size: larger;
+}
+
+.journal > div .j-item p {
+  text-align: left;
+  color: #393939;
+}
+
+.journal > div .j-item .j-read {
+  text-align: left;
+  margin-top: 10%;
+}
+
+.journal > div .j-item .j-read a {
+  text-decoration-color: #bf9864;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  text-underline-offset: 0.3em;
+}
+
+.journal > div .j-item .j-read a:hover {
+  color: #face93;
+}
+
+/*Footer*/
+footer {
+  height: 400px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer div {
+  width: 100%;
+  height: 50%;
+}
+
+.top-part {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  height: 60%;
+}
+.top-part div {
+  height: 80%;
+}
+
+.top-part #footer-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+  width: 20%;
+  font-family: Comic Sans MS;
+  font-size: larger;
+}
+
+#icon-container {
+  color: white;
+  display: flex;
+  width: 25%;
+  align-items: center;
+  gap: 2em;
+  padding: 3%;
+}
+
+#links-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+}
+
+#links-container .row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  font-size: small;
+}
+
+#links-container .row a {
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.1em;
+}
+
+#vertical-div {
+  transform: rotate(90deg);
+  width: max-content;
+  height: min-content;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  right: -4.5%;
+  background-color: black;
+  padding: 12px;
+  color: rgb(190, 189, 189);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+#input-container {
+  padding: 3%;
+}
+#input-container h2 {
+  margin: 0;
+  margin-bottom: 8px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 100;
+  font-size: 26px;
+}
+#input-container input[type="text"] {
+  width: 100%;
+  padding: 4.5%;
+  outline: 1px solid white;
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+#input-container #checkbox {
+  margin-top: 5px;
+  height: fit-content;
+  font-size: small;
+}
+
+#input-container button {
+  margin-top: 1.5em;
+  width: 110%;
+  padding: 4.5%;
+  border: none;
+  background-color: #face93;
+}
+
+.bottom-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #bebfbe;
+  font-size: large;
+  border-top: 1px solid rgb(83, 83, 83);
+}
+
+.whatsapp-icon {
+  width: 2%;
+  height: 4%;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5%;
+  border-radius: 50%;
+  position: fixed;
+  top: 90%;
+  right: 1%;
+  box-shadow: 0px 0px 7px 1px white;
+}
+
+.whatsapp-icon i {
+  font-size: 20px;
+}
+
+/* Styles for screens smaller than 768px */
+@media (max-width: 821px) {
+  /* Header */
+  body {
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  #navbar {
+    margin-top: -2%;
+    font-size: small;
+    width: 93%;
+  }
+  .fixed-nav {
+    top: 2%;
+  }
+  .small-left {
+    display: none;
+  }
+
+  .left {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .left > ul {
+    text-align: center;
+  }
+
+  .list-item {
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
+
+  .right {
+    flex-basis: 15%;
+  }
+
+  /* Slider */
+
+  .text span {
+    font-size: 30px;
+  }
+
+  .text p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .text button {
+    font-size: small;
+  }
+
+  .dot-box {
+    top: 80%;
+  }
+  .slideshow-container {
+    height: 100%;
+  }
+
+  .text {
+    color: white;
+    font-size: 15px;
+    padding: 4px 6px;
+    position: absolute;
+    top: 40%;
+
+    width: 100%;
+    text-align: center;
+  }
+
+  .dot-box {
+    position: absolute;
+    top: 90%;
+    left: 47%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* .inner-card {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  } */
+  .card-section {
+    width: 90%;
+  }
+  .card {
+    width: 100%;
+  }
+  .inner-card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .card .inner-card .right-part img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .journal > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .journal > div .j-item {
+    margin-bottom: 10px;
+  }
+
+  footer {
+    height: 730px;
+  }
+
+  .top-part {
+    height: 80%;
+  }
+  .top-part {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #input-container {
+    padding: 0;
+    width: 50%;
+  }
+
+  .top-part #footer-heading {
+    margin-top: 40px;
+    padding: 0;
+  }
+  #icon-container {
+    padding: 0;
+  }
+  .bottom-part {
+    font-size: smaller;
+    height: 20%;
+  }
+
+  #vertical-div {
+    transform: rotate(90deg);
+    width: max-content;
+    height: min-content;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    right: -3%;
+    background-color: black;
+    padding: 12px;
+    color: rgb(190, 189, 189);
+    font-weight: 600;
+    font-size: 20px;
+  }
+  /* Main content */
+  .carousel-inner img {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .prev-btn,
+  .next-btn {
+    font-size: x-large;
+  }
+
+  .card .inner-card .left-part {
+    width: 50%;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .card .inner-card .left-part h1 {
+    font-size: large;
+  }
+
+  .color-card,
+  .color-it {
+    padding: 8%;
+  }
+
+  .some-text div {
+    width: 70%;
+    margin-left: 0;
+  }
+
+  .journal > div .j-item {
+    width: 100%;
+  }
+
+  .whatsapp-icon {
+    width: 4%;
+    height: 4%;
+    position: fixed;
+    top: 85%;
+    right: 7%;
+  }
+}
+
+/* Styles for screens smaller than 600px */
+@media (max-width: 415px) {
+  #navbar {
+    margin-top: 2%;
+    width: 93%;
+    padding: 1%;
+  }
+  .fixed-nav {
+    top: -1%;
+  }
+  .small-left {
+    display: block;
+  }
+  .left {
+    display: none;
+  }
+  .middle {
+    font-size: 24px;
+  }
+  .right {
+    flex-basis: 25%;
+  }
+
+  .slideshow-container {
+    height: 50vh;
+  }
+  .mySlides {
+    height: 100%;
+  }
+  .mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .text {
+    top: 40%;
+    font-size: small;
+    font-weight: lighter;
+  }
+  .inner-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card-section {
+    width: 100%;
+  }
+
+  .card .inner-card .right-part img {
+    width: 100%;
+    height: 100%;
+  }
+  .card .inner-card .left-part div p {
+    font-size: small;
+  }
+
+  .top-part #footer-heading {
+    font-size: medium;
+  }
+
+  #icon-container {
+    gap: 1em;
+  }
+
+  .whatsapp-icon {
+    width: 5%;
+    height: 4%;
+    padding: 1%;
+    right: 8%;
+  }
+
+  #vertical-div {
+    transform: rotate(90deg);
+    width: max-content;
+    height: min-content;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    right: -8.8%;
+    background-color: black;
+    padding: 12px;
+    color: rgb(190, 189, 189);
+    font-weight: 400;
+    font-size: medium;
+  }
+
+  .sidemenu-container {
+    position: absolute;
+    top: 1.5%;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    /* background-color: #717171; */
+    background-color: rgba(113, 113, 113, 0.7);
+    transition: all ease-in-out 0.5s;
+  }
+  .sidemenu {
+    width: 40%;
+    height: 100%;
+    padding: 2%;
+    background-color: white;
+  }
+
+  .sidemenu div {
+    padding: 2%;
+    margin-bottom: 1%;
+  }
+  .sidemenu div:hover {
+    background-color: #bebfbe;
+  }
+}
